@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Exp 6: CRUD operations using php</title>
+</head>
+<body>
+	<form method="post" id="Form1" action="action.php">
+    	<h2>Client Form</h2>
+    	<div>
+        	<label>Name:</label>
+        	<input type="text" placeholder="Enter Name" name="fullname" id="Name">
+    	</div>
+    	<div>
+        	<label>Address:</label>
+        	<input type="text" placeholder="Enter Address" id="Address" name="add">
+    	</div>
+    	<div>
+        	<label>Salary:</label>
+        	<input type="number" placeholder="Enter Salary" id="Salary" name="salary">
+    	</div>
+    	<input name="submit" type="submit" value="SUBMIT" id="btn">
+	</form>
+    
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+    	$(document).ready(function(){
+        	$("#btn").click(function(e){
+   	 
+           	$(".error").remove();
+           	var name = $("#Name").val();
+           	if(name === "")
+           	{
+                	e.preventDefault();
+                	$("#Name").focus();
+                	$("#Name").after("<span class='error' style='color:red'>Enter Correct Name</span>");
+           	}
+           	var addr = $("#Address").val();
+           	if(addr === "")
+           	{
+                	e.preventDefault();
+                	$("#Address").focus();
+                	$("#Address").after("<span class='error' style='color:red'>Enter Correct Address</span>");
+           	}
+           	var sal = $('#Salary').val();
+           	if(sal <= 0)
+           	{
+                	e.preventDefault();
+                	$("#Salary").focus();
+                	$("#Salary").after("<span class='error' style='color:red'>Enter Correct Salary</span>");
+           	}
+        	});
+    	});
+	</script>
+   </body>
+</html>
